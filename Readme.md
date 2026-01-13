@@ -36,16 +36,17 @@ Built with the intent to:
 > Minimal. Intentional. Interview-ready.
 
 ---
-
-## 🧩 Design Patterns Covered
-
-| Pattern | Core Idea |
-|-------|-----------|
-| **Strategy** | Encapsulate interchangeable behavior |
-| **Factory** | Centralize and abstract object creation |
-| **Singleton** | Maintain a single shared instance |
-| **Observer** | Enable event-driven communication |
-| **State** | Alter object behavior based on internal state |
+<div align="center">
+  ## 🧩 Design Patterns Covered
+  
+  | Pattern | Core Idea |
+  |-------|-----------|
+  | **Strategy** | Encapsulate interchangeable behavior |
+  | **Factory** | Centralize and abstract object creation |
+  | **Singleton** | Maintain a single shared instance |
+  | **Observer** | Enable event-driven communication |
+  | **State** | Alter object behavior based on internal state |
+</div>
 
 > ℹ️ The **State Pattern** is applied implicitly in real-world systems such as **ATM** and **Vending Machine** to manage state-dependent behavior transitions.
 
@@ -257,6 +258,7 @@ Computer Science Engineering
 Focused on Backend Development, Low Level Design & Scalable Systems
 
 > *“Design patterns are not about complexity — they are about controlling change.”*
+
 
 
 

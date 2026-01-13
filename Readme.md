@@ -1,205 +1,224 @@
-# 🚀 Low Level Design Practice – Design Patterns in C++
+🚀 Low Level Design Practice – Design Patterns in C++
+<p align="center"> <img src="https://img.shields.io/badge/Language-C%2B%2B-blue" /> <img src="https://img.shields.io/badge/Domain-Low%20Level%20Design-purple" /> <img src="https://img.shields.io/badge/Patterns-Strategy%20|%20Factory%20|%20Singleton%20|%20Observer-green" /> <img src="https://img.shields.io/badge/Target-Fresher%20%26%20Junior%20Engineers-success" /> </p>
+🌍 Overview
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Language-C++-blue" />
-  <img src="https://img.shields.io/badge/Focus-Low%20Level%20Design-purple" />
-  <img src="https://img.shields.io/badge/Patterns-Strategy%20|%20Factory%20|%20Singleton%20|%20Observer-green" />
-  <img src="https://img.shields.io/badge/Level-Fresher%20Interview%20Ready-success" />
-</p>
+This repository contains Low Level Design (LLD) implementations written in C++, focusing on core object-oriented design patterns that are commonly evaluated in on-campus, fresher, and junior backend interviews.
 
----
+The emphasis is not on frameworks, but on:
 
-## 🧠 About This Repository
+Clean object-oriented design
 
-This repository contains **Low Level Design (LLD)** implementations written in **C++**, focusing on **core design patterns** that are frequently asked in **on-campus and fresher interviews**.
+Pattern-driven problem solving
 
-The goal of this repo is:
-- To understand **when and why** to use a design pattern
-- To avoid overengineering
-- To build **interview-explainable**, clean, modular code
+Interview-explainable architecture
 
-All examples are **console-based** and intentionally simple.
+Avoiding premature over-engineering
 
----
+All implementations are console-based, intentionally minimal, and designed to clearly highlight why a pattern is used, not just how it is coded.
 
-## 🧩 Design Patterns Covered
+🎯 Goals of This Repository
 
-| Pattern | Purpose |
-|-------|--------|
-| **Strategy** | Change behavior without modifying core logic |
-| **Factory** | Encapsulate object creation |
-| **Singleton** | Ensure a single shared instance |
-| **Observer** | Event-driven notification system |
+Build strong intuition for when to apply a design pattern
 
----
+Learn to identify change-prone areas in a system
 
-## 📁 Repository Structure
+Practice extensible and maintainable design
 
+Prepare for LLD rounds and whiteboard interviews
+
+Create a reusable personal reference for system design fundamentals
+
+🧩 Design Patterns Covered
+Pattern	Core Idea
+Strategy	Encapsulate interchangeable behavior
+Factory	Centralize and abstract object creation
+Singleton	Maintain a single shared instance
+Observer	Enable event-driven communication
+
+These four patterns alone cover a majority of fresher-level LLD interview scenarios.
+
+🗂️ Repository Structure
 .
 ├── factory/
-│ ├── factory_basic_pattern.cpp
-│ └── factoryDesignPattern.pdf
+│   ├── factory_basic_pattern.cpp
+│   └── factoryDesignPattern.pdf
 │
 ├── observer/
-│ ├── observer_basic_pattern.cpp
-│ └── Real-world-example.pdf
+│   ├── observer_basic_pattern.cpp
+│   └── real_world_example.pdf
 │
 ├── singleton/
-│ └── singleton_basic_pattern.cpp
+│   └── singleton_basic_pattern.cpp
 │
 ├── strategy/
-│ ├── strategy_basic_pattern.cpp
-│ ├── strategy_payment.cpp
-│ ├── strategy_sorting.cpp
-│ ├── strategy_payment.exe
-│ └── sorting.exe
+│   ├── strategy_basic_pattern.cpp
+│   ├── strategy_payment.cpp
+│   ├── strategy_sorting.cpp
+│   ├── strategy_payment.exe
+│   └── sorting.exe
 │
-├── Real-world-examples/
-│ ├── ATM_Automatic_Teller_Machine.cpp
-│ ├── ParkingLot.cpp
-│ ├── VendingMachine.cpp
-│ ├── PubSubSystem.cpp (to be added)
-│ └── RideBookingSystem.cpp (to be added)
+├── real_world_examples/
+│   ├── ATM_Automatic_Teller_Machine.cpp
+│   ├── ParkingLot.cpp
+│   ├── VendingMachine.cpp
+│   ├── PubSubSystem.cpp        // (upcoming)
+│   └── RideBookingSystem.cpp   // (upcoming)
 │
 ├── .gitignore
 └── README.md
 
 
----
+Each folder is self-contained and can be explored independently.
 
-## 🧪 Pattern-wise Examples
+🧪 Pattern-Wise Implementations
+🔹 Strategy Pattern
 
-### 🔹 Strategy Pattern
-**Location:** `strategy/`
+Location: strategy/
 
-**Examples:**
-- Payment strategy (UPI / Card)
-- Sorting strategy (different algorithms)
+Use Cases Implemented:
 
-**Why Strategy?**  
-Used when **business logic varies** but the core flow remains the same.
+Payment methods (UPI / Card)
 
----
+Sorting algorithms (runtime selection)
 
-### 🔹 Factory Pattern
-**Location:** `factory/`
+Why Strategy?
+Applied when business logic varies, but the overall workflow remains constant.
 
-**Examples:**
-- Basic object creation abstraction
-- Factory Design Pattern reference PDF
+🔹 Factory Pattern
 
-**Why Factory?**  
-Used when **object type depends on input** and creation logic should be centralized.
+Location: factory/
 
----
+Use Cases Implemented:
 
-### 🔹 Singleton Pattern
-**Location:** `singleton/`
+Centralized object creation
 
-**Examples:**
-- Single instance resource manager
+Input-based object selection
 
-**Why Singleton?**  
-Used when exactly **one shared instance** is required (DB, cache, configuration).
+Why Factory?
+Prevents object creation logic from spreading across the codebase.
 
----
+🔹 Singleton Pattern
 
-### 🔹 Observer Pattern
-**Location:** `observer/`
+Location: singleton/
 
-**Examples:**
-- Basic observer implementation
-- Real-world explanation via PDF
+Use Cases Implemented:
 
-**Why Observer?**  
-Used for **event-driven systems** where multiple components react to changes.
+Shared resource management
 
----
+Why Singleton?
+Used when a single source of truth is required (configuration, cache, DB manager).
 
-## 🏗️ Real-World LLD Implementations
+🔹 Observer Pattern
 
-### 1️⃣ Vending Machine
-**File:** `Real-world-examples/VendingMachine.cpp`  
-**Patterns Used:** Factory, Strategy, Singleton  
+Location: observer/
 
-**Highlights:**
-- Product creation via Factory
-- Pricing handled using Strategy
-- Inventory managed centrally
+Use Cases Implemented:
 
----
+Event notification system
 
-### 2️⃣ Parking Lot System
-**File:** `Real-world-examples/ParkingLot.cpp`  
-**Patterns Used:** Factory, Strategy, Singleton  
+Publisher-subscriber relationship
 
-**Highlights:**
-- Vehicle-based slot allocation
-- Flexible pricing rules
-- Central parking manager
+Why Observer?
+Ideal for event-driven architectures where components should remain loosely coupled.
 
----
+🏗️ Real-World LLD Implementations
+1️⃣ Vending Machine
 
-### 3️⃣ ATM System
-**File:** `Real-world-examples/ATM_Automatic_Teller_Machine.cpp`  
-**Patterns Used:** Strategy, Singleton  
+File: real_world_examples/VendingMachine.cpp
+Patterns Used: Factory, Strategy, Singleton
 
-**Highlights:**
-- Transaction logic separated via strategies
-- Centralized account management
+Key Design Decisions:
 
----
+Product creation via Factory
 
-### 🔜 Upcoming Systems
-These will be added to extend pattern usage:
+Pricing logic via Strategy
 
-- **Pub/Sub System**
-  - Observer + Singleton
-- **Ride Booking System (Uber-lite)**
-  - Strategy + Factory + Singleton + Observer
+Inventory handled as a singleton
 
----
+2️⃣ Parking Lot System
 
-## 🎯 Interview Readiness
+File: real_world_examples/ParkingLot.cpp
+Patterns Used: Factory, Strategy, Singleton
 
-This repository prepares you to:
-- Explain **why a pattern was chosen**
-- Identify **change-prone areas**
-- Discuss **trade-offs**
-- Whiteboard LLD confidently
+Key Design Decisions:
 
-Example interview explanation:
-> “I used Strategy because pricing rules change frequently, and I wanted to avoid modifying the core logic whenever a new rule is introduced.”
+Vehicle-based slot allocation
 
----
+Flexible pricing models
 
-## 🛠️ How to Run
+Centralized parking state management
 
-1. Navigate to any folder
-2. Compile the `.cpp` file using a C++ compiler
-3. Run the executable
-4. Follow console output
+3️⃣ ATM System
+
+File: real_world_examples/ATM_Automatic_Teller_Machine.cpp
+Patterns Used: Strategy, Singleton
+
+Key Design Decisions:
+
+Transaction rules encapsulated as strategies
+
+Account data managed centrally
+
+🔜 Upcoming Implementations
+
+Pub/Sub System
+
+Observer + Singleton
+
+Ride Booking System (Uber-Lite)
+
+Strategy + Factory + Singleton + Observer
+
+🧠 Interview Readiness
+
+This repository prepares you to confidently:
+
+Justify pattern selection
+
+Explain design trade-offs
+
+Identify extension points
+
+Walk through LLD solutions step-by-step
+
+Example explanation:
+
+“I used Strategy here because pricing rules are expected to change frequently, and this allows new rules to be added without modifying the core business flow.”
+
+▶️ How to Run
+
+Navigate to any folder
+
+Compile the .cpp file using a C++ compiler
+
+g++ filename.cpp -o output
+
+
+Run the executable
+
+./output
+
 
 No external dependencies required.
 
----
+🔮 Future Enhancements
 
-## 📌 Future Improvements
-- Add State pattern (ATM / Elevator)
-- Add Adapter pattern
-- Improve CLI flows
-- Add basic unit tests
+Introduce State Pattern (ATM, Elevator)
 
----
+Add Adapter Pattern examples
 
-## 👤 Author
+Improve CLI interaction flows
 
-**Aditya**  
-Computer Science Engineering  
-Focused on Backend Development & System Design
+Add basic unit testing
 
-> *“Design patterns are not about complexity — they are about controlling change.”*
+Document class diagrams
 
----
+👤 Author
 
-⭐ If this repository helped you, feel free to star it.
+Aditya
+Computer Science Engineering
+Focused on Backend Development, Low Level Design & Scalable Systems
+
+“Design patterns are not about complexity — they are about controlling change.”
+
+⭐ If you found this repository useful, consider giving it a star.

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,50:203a43,100:2c5364&height=90&section=header&text=Low%20Level%20Design%20Practice&fontSize=28&fontColor=ffffff&animation=fadeIn" />
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,50:203a43,100:2c5364&height=90&section=header&text=Low%20Level%20Design%20Practice&fontSize=28&fontColor=ffffff&animation=twinkling&color=gradient" />
 </p>
 
 <p align="center">
@@ -7,39 +7,6 @@
     src="https://capsule-render.vercel.app/api?type=rect&height=90&text=Low%20Level%20Design%20Practice&fontSize=30&fontColor=ffffff&animation=twinkling&color=gradient"
   />
 </p>
-
-<p align="center">
-<svg width="100%" height="90" viewBox="0 0 1200 90" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="grad">
-      <stop offset="0%" stop-color="#0f2027">
-        <animate attributeName="stop-color"
-                 values="#0f2027;#203a43;#2c5364;#0f2027"
-                 dur="6s"
-                 repeatCount="indefinite" />
-      </stop>
-      <stop offset="100%" stop-color="#2c5364">
-        <animate attributeName="stop-color"
-                 values="#2c5364;#0f2027;#203a43;#2c5364"
-                 dur="6s"
-                 repeatCount="indefinite" />
-      </stop>
-    </linearGradient>
-  </defs>
-
-  <rect width="1200" height="90" fill="url(#grad)" rx="10" />
-
-  <text x="50%" y="55%"
-        dominant-baseline="middle"
-        text-anchor="middle"
-        fill="white"
-        font-size="30"
-        font-family="Segoe UI, Arial, sans-serif">
-    Low Level Design Practice
-  </text>
-</svg>
-</p>
-
 
 
 <p align="center">
@@ -297,6 +264,7 @@ Computer Science Engineering
 Focused on Backend Development, Low Level Design & Scalable Systems
 
 > *“Design patterns are not about complexity — they are about controlling change.”*
+
 
 
 

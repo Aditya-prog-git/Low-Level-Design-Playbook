@@ -1,6 +1,40 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&height=90&text=Low%20Level%20Design%20Practice&fontSize=30&fontColor=F8FAFC&animation=fadeIn&color=1e3a8a,2563eb,38bdf8" />
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,50:203a43,100:2c5364&height=90&section=header&text=Low%20Level%20Design%20Practice&fontSize=28&fontColor=ffffff&animation=twinkling" />
 </p>
+
+<p align="center">
+  <b>Design Patterns • Clean Architecture • Interview-Ready LLD in C++</b>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Language-C%2B%2B-0A66C2?style=flat-square" />
+  <img src="https://img.shields.io/badge/Domain-Low%20Level%20Design-7B2CBF?style=flat-square" />
+  <img src="https://img.shields.io/badge/Focus-Clean%20OOP%20%26%20Patterns-16A34A?style=flat-square" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Patterns-Strategy%20%7C%20Factory%20%7C%20Singleton%20%7C%20Observer%20%7C%20State-F59E0B?style=flat-square" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Target-Fresher%20%26%20Junior%20Engineers-22C55E?style=flat-square" />
+  <img src="https://img.shields.io/badge/Style-Interview%20Explainable-3B82F6?style=flat-square" />
+</p>
+
+---
+
+### 👋 What this repository is about
+
+A **curated collection of Low Level Design (LLD) implementations in C++**, focused on **real interview problems** and **core design patterns**.
+
+Built with the intent to:
+- Think in **patterns, not if-else**
+- Identify **change-prone areas**
+- Write **clean, extensible OOP code**
+- Explain designs clearly in interviews
+
+> Minimal. Intentional. Interview-ready.
+
 
 <p align="center">
   <b>Design Patterns • Clean Architecture • Interview-Ready LLD in C++</b>
@@ -257,6 +291,7 @@ Computer Science Engineering
 Focused on Backend Development, Low Level Design & Scalable Systems
 
 > *“Design patterns are not about complexity — they are about controlling change.”*
+
 
 
 

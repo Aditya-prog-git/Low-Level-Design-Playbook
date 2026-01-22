@@ -407,44 +407,61 @@ int main() {
 
     SimpleVM::VendingMachine sm(2, 20);
 
-    // Initial state: NO_COIN
+    cout << "\n[STATUS] Initial Machine State\n";
     sm.printStatus();
 
-    // Try invalid actions in NO_COIN
+    /* ----------------------------------------------------- */
+    cout << "\n[ACTION] Selecting item without inserting coin\n";
     sm.selectItem();
+    sm.printStatus();
+
+    cout << "\n[ACTION] Trying to dispense without coin\n";
     sm.dispense();
+    sm.printStatus();
+
+    cout << "\n[ACTION] Trying to return coin when no coin is inserted\n";
     sm.returnCoin();
-
-    // Insert insufficient coin
-    sm.insertCoin(10);          // NO_COIN → HAS_COIN
     sm.printStatus();
 
-    // Try dispensing without enough money
-    sm.selectItem();            // stays HAS_COIN
+    /* ----------------------------------------------------- */
+    cout << "\n[ACTION] Inserting Rs 10 (Insufficient amount)\n";
+    sm.insertCoin(10);
+    sm.printStatus();
+
+    cout << "\n[ACTION] Selecting item with insufficient balance\n";
+    sm.selectItem();
+    sm.printStatus();
+
+    cout << "\n[ACTION] Returning inserted coins\n";
+    sm.returnCoin();
+    sm.printStatus();
+
+    /* ----------------------------------------------------- */
+    cout << "\n[ACTION] Inserting Rs 20 (Exact price)\n";
+    sm.insertCoin(20);
+    sm.printStatus();
+
+    cout << "\n[ACTION] Selecting item\n";
+    sm.selectItem();
+
+    cout << "\n[ACTION] Dispensing item\n";
     sm.dispense();
-    sm.returnCoin();            // HAS_COIN → NO_COIN
     sm.printStatus();
 
-    // Insert exact money
-    sm.insertCoin(20);          // NO_COIN → HAS_COIN
-    sm.selectItem();            // HAS_COIN → DISPENSING
-    sm.dispense();              // DISPENSING → NO_COIN
-    sm.printStatus();
-
-    // Buy last item
+    /* ----------------------------------------------------- */
+    cout << "\n[ACTION] Buying last available item\n";
     sm.insertCoin(20);
     sm.selectItem();
-    sm.dispense();              // DISPENSING → SOLD_OUT
+    sm.dispense();
     sm.printStatus();
 
-    // Test SOLD_OUT behavior
+    /* ----------------------------------------------------- */
+    cout << "\n[ACTION] Trying to insert coin when machine is SOLD_OUT\n";
     sm.insertCoin(10);
-    sm.selectItem();
-    sm.dispense();
-    sm.returnCoin();
+    sm.printStatus();
 
-    // Refill and return to service
-    sm.refill(3);               // SOLD_OUT → NO_COIN
+    cout << "\n[ACTION] Refilling machine with 3 items\n";
+    sm.refill(3);
     sm.printStatus();
 
     /* =========================================================
@@ -456,55 +473,72 @@ int main() {
 
     MultiVM::VendingMachine mm;
 
-    // Add inventory
+    cout << "\n[SETUP] Adding items to vending machine\n";
     mm.addItem("Water", 20, 1);
     mm.addItem("Coke", 30, 1);
     mm.addItem("Chips", 15, 2);
 
-    // Initial state: NO_COIN
+    cout << "\n[STATUS] Initial Machine State\n";
     mm.printStatus();
 
-    // Try selecting item without coin
+    /* --------------------------------------------------------- */
+    cout << "\n[ACTION] Selecting Water without inserting coin\n";
     mm.selectItem("Water");
-    mm.dispense();
+    mm.printStatus();
+
+    /* --------------------------------------------------------- */
+    cout << "\n[ACTION] Inserting Rs 10\n";
+    mm.insertCoin(10);
+    mm.printStatus();
+
+    cout << "\n[ACTION] Selecting Coke (Price Rs 30) with insufficient balance\n";
+    mm.selectItem("Coke");
+    mm.printStatus();
+
+    cout << "\n[ACTION] Returning inserted coins\n";
     mm.returnCoin();
-
-    // Insert insufficient coins
-    mm.insertCoin(10);          // NO_COIN → HAS_COIN
-    mm.selectItem("Coke");      // insufficient funds
-    mm.returnCoin();            // HAS_COIN → NO_COIN
     mm.printStatus();
 
-    // Buy Water
+    /* --------------------------------------------------------- */
+    cout << "\n[ACTION] Inserting Rs 20\n";
     mm.insertCoin(20);
-    mm.selectItem("Water");     // HAS_COIN → DISPENSING
-    mm.dispense();              // DISPENSING → NO_COIN
     mm.printStatus();
 
-    // Buy Chips (twice)
-    mm.insertCoin(15);
-    mm.selectItem("Chips");
-    mm.dispense();
+    cout << "\n[ACTION] Selecting Water\n";
+    mm.selectItem("Water");
 
-    mm.insertCoin(15);
-    mm.selectItem("Chips");
+    cout << "\n[ACTION] Dispensing Water\n";
     mm.dispense();
     mm.printStatus();
 
-    // Buy Coke (last remaining item)
+    /* --------------------------------------------------------- */
+    cout << "\n[ACTION] Buying Chips (1st time)\n";
+    mm.insertCoin(15);
+    mm.selectItem("Chips");
+    mm.dispense();
+    mm.printStatus();
+
+    cout << "\n[ACTION] Buying Chips (2nd time)\n";
+    mm.insertCoin(15);
+    mm.selectItem("Chips");
+    mm.dispense();
+    mm.printStatus();
+
+    /* --------------------------------------------------------- */
+    cout << "\n[ACTION] Buying Coke (last available item)\n";
     mm.insertCoin(30);
     mm.selectItem("Coke");
-    mm.dispense();              // DISPENSING → SOLD_OUT
+    mm.dispense();
     mm.printStatus();
 
-    // Test SOLD_OUT behavior
+    /* --------------------------------------------------------- */
+    cout << "\n[ACTION] Trying to insert coin after SOLD_OUT\n";
     mm.insertCoin(10);
-    mm.selectItem("Water");
-    mm.dispense();
-    mm.returnCoin();
+    mm.printStatus();
 
-    // Refill item and restore service
-    mm.refill("Water", 2);      // SOLD_OUT → NO_COIN
+    /* --------------------------------------------------------- */
+    cout << "\n[ACTION] Refilling Water with quantity 2\n";
+    mm.refill("Water", 2);
     mm.printStatus();
 
     return 0;

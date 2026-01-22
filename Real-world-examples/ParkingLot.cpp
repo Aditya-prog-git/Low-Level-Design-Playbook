@@ -330,13 +330,14 @@ Flow:
 int main() {
     ParkingLot& parkingLot = ParkingLot::getInstance();
 
+    cout << "\n================ PARKING LOT SYSTEM ================\n";
+
     /* -------------------------------
        Create Floors & Parking Spots
     -------------------------------- */
+    cout << "\n[SETUP] Creating parking floors and spots\n";
 
     ParkingFloor* floor1 = new ParkingFloor(1);
-    // floor1->addSpot(new BikeParkingSpot(101));
-    // floor1->addSpot(new BikeParkingSpot(102));
     floor1->addSpot(new CarParkingSpot(103));
     floor1->addSpot(new TruckParkingSpot(104));
 
@@ -348,9 +349,12 @@ int main() {
     parkingLot.addFloor(floor1);
     parkingLot.addFloor(floor2);
 
+    cout << "[SETUP COMPLETE] Parking lot is ready\n";
+
     /* -------------------------------
        Create Vehicles
     -------------------------------- */
+    cout << "\n[SETUP] Creating vehicles\n";
 
     Vehicle bike(BIKE, "PB10BK1111");
     Vehicle car(CAR, "PB10CR2222");
@@ -360,45 +364,66 @@ int main() {
     /* -------------------------------
        Park Vehicles
     -------------------------------- */
+    cout << "\n[ACTION] Bike entering parking lot\n";
+    ParkingSpot* bikeSpot = parkingLot.parkVehicle(bike);
+    if (!bikeSpot)
+        cout << "[FAILED] No suitable spot for BIKE\n";
 
-    ParkingSpot* bikeSpot  = parkingLot.parkVehicle(bike);
-    ParkingSpot* carSpot   = parkingLot.parkVehicle(car);
+    cout << "\n[ACTION] Car entering parking lot\n";
+    ParkingSpot* carSpot = parkingLot.parkVehicle(car);
+    if (!carSpot)
+        cout << "[FAILED] No suitable spot for CAR\n";
+
+    cout << "\n[ACTION] Truck entering parking lot\n";
     ParkingSpot* truckSpot = parkingLot.parkVehicle(truck);
-    ParkingSpot* otherSpot = parkingLot.parkVehicle(other); // may fail
+    if (!truckSpot)
+        cout << "[FAILED] No suitable spot for TRUCK\n";
+
+    cout << "\n[ACTION] OTHER vehicle entering parking lot\n";
+    ParkingSpot* otherSpot = parkingLot.parkVehicle(other);
+    if (!otherSpot)
+        cout << "[FAILED] No suitable spot for OTHER vehicle type\n";
 
     /* -------------------------------
        Fee & Payment Strategy
     -------------------------------- */
-
     ParkingFeeStrategy* feeStrategy = new BasicFeeStrategy();
     PaymentStrategy* upiPayment  = new UpiPayment();
     PaymentStrategy* cardPayment = new CardPayment();
 
     /* -------------------------------
-       Exit Vehicles (Fee + Pay + Unpark)
+       Exit Vehicles
     -------------------------------- */
+    cout << "\n================ VEHICLE EXIT FLOW ================\n";
 
     if (bikeSpot) {
+        cout << "\n[EXIT] Bike exiting after 1 hour\n";
         int fee = feeStrategy->calculateFee(1, HOUR, bike.getType());
+        cout << "[FEE] Calculated parking fee: Rs " << fee << endl;
         upiPayment->pay(fee);
         bikeSpot->unpark();
+        cout << "[SUCCESS] Bike exited, spot released\n";
     }
 
     if (carSpot) {
+        cout << "\n[EXIT] Car exiting after 3 hours\n";
         int fee = feeStrategy->calculateFee(3, HOUR, car.getType());
+        cout << "[FEE] Calculated parking fee: Rs " << fee << endl;
         cardPayment->pay(fee);
         carSpot->unpark();
+        cout << "[SUCCESS] Car exited, spot released\n";
     }
 
     if (truckSpot) {
+        cout << "\n[EXIT] Truck exiting after 1 day\n";
         int fee = feeStrategy->calculateFee(1, DAY, truck.getType());
+        cout << "[FEE] Calculated parking fee: Rs " << fee << endl;
         upiPayment->pay(fee);
         truckSpot->unpark();
+        cout << "[SUCCESS] Truck exited, spot released\n";
     }
 
-    if (!otherSpot) {
-        cout << "No suitable spot for OTHER vehicle type." << endl;
-    }
+    cout << "\n================ SYSTEM FLOW COMPLETE ================\n";
 
     return 0;
 }

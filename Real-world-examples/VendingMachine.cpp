@@ -270,9 +270,9 @@ private:
 public:
     VendingMachine();
 
-    void addItem(string n, int p, int q) {
-        inventory[n] = {n, p, q};
-        if (currentState == soldOutState && q > 0)
+    void addItem(string name, int price, int quantity) {
+        inventory[name] = {name, price, quantity};
+        if (currentState == soldOutState && quantity > 0)
             currentState = noCoinState;
     }
 
